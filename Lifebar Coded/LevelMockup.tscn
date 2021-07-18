@@ -16,7 +16,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
-_sections_unfolded = [ "Anchor", "Visibility", "custom_constants" ]
 
 [node name="Bars" parent="GUI" index="1"]
 margin_bottom = 748.0
@@ -24,10 +23,11 @@ margin_bottom = 748.0
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource( 3 )]
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
-MaxHealth = 18
 
 [node name="Enemy" parent="Characters" instance=ExtResource( 4 )]
-Strength = 6
+
+[connection signal="Died" from="Characters/Player" to="Characters/Enemy" method="OnPlayerDied"]
+[connection signal="Died" from="Characters/Player" to="GUI" method="OnPlayerDied"]
+[connection signal="HealthChanged" from="Characters/Player" to="GUI" method="OnPlayerHealthChanged"]
 
 [editable path="GUI"]

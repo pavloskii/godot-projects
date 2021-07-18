@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/robisplash_logo.png" type="Texture" id=1]
+[ext_resource path="res://assets/start_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/start_normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 118, -400 ), Vector2( 118, 0 ) ]
+}
+
+[node name="Background" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.0
+margin_top = -625.0
+margin_right = 284.0
+margin_bottom = -250.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -74.5
+margin_top = -74.0
+margin_right = 74.5
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copyright" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -114.0
+margin_top = -37.0
+margin_right = -22.0
+margin_bottom = -23.0
+text = "2021 IP v1.0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )
